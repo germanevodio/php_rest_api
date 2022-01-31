@@ -18,7 +18,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         /**
          * Validamos que existan los parametros necesarios
          */
-        if ($_POST['titulo'] && $_POST['descripcion'] && $_POST['fecha_creacion'] && $_POST['jwt']) {
+        if ($_POST['titulo'] && $_POST['descripcion'] && $_POST['jwt']) {
             $statusCode = 200;
             $message = 'El token no pudo ser decodificado.';
 
@@ -44,7 +44,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     $publicationsClass = new publicationsClass(
                         $_POST['titulo'],
                         $_POST['descripcion'],
-                        $_POST['fecha_creacion'],
                         $active = 1,
                         $result->data->user_id
                     );
@@ -150,7 +149,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         /**
          * Validamos que existan los parametros necesarios
          */
-        if ($_PUT['titulo'] && $_PUT['descripcion'] && $_PUT['fecha_creacion'] && $_GET['id'] && $_GET['jwt']) {
+        if ($_PUT['titulo'] && $_PUT['descripcion'] && $_GET['id'] && $_GET['jwt']) {
             $message = 'El token no pudo ser decodificado.';
 
             /**
@@ -179,8 +178,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     $publicationsClass = new publicationsClass(
                         $_PUT['titulo'],
                         $_PUT['descripcion'],
-                        $_PUT['fecha_creacion'],
-                        $active =1,
+                        $active = 1,
                         $result->data->user_id
                     );
             
