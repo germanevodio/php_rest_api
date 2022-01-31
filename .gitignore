@@ -1,0 +1,5 @@
+# macos config files
+.DS_Store
+
+# composer libs
+/vendor
