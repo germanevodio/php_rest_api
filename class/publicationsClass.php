@@ -9,11 +9,10 @@ class publicationsClass {
     private $active;
     private $userId;
 
-    public function __construct($name, $description, $released, $active, $userId)
+    public function __construct($name, $description, $active, $userId)
     {
         $this->name        = $name;
         $this->description = $description;
-        $this->released    = $released;
         $this->active      = $active;
         $this->userId   = $userId;
     } // end __construct
@@ -29,7 +28,6 @@ class publicationsClass {
         return $publicationsModel->insert(
             $this->name,
             $this->description,
-            $this->released,
             $this->active,
             $this->userId
         );
@@ -70,7 +68,6 @@ class publicationsClass {
         return $publicationsModel->update(
             $this->name,
             $this->description,
-            $this->released,
             $this->active,
             $this->userId,
             $publicationId

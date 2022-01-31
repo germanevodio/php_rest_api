@@ -40,24 +40,24 @@ class publicationsModel extends connectionClass {
      *
      * @param [string] $name
      * @param [string] $description
-     * @param [string] $released
      * @param [int] $active
      * @param [int] $createdBy
      * @return void
      */
-    public function insert($name, $description, $released, $active, $createdBy)
+    public function insert($name, $description, $active, $createdBy)
     {
         $name        = htmlspecialchars(strip_tags($name));
         $description = htmlspecialchars(strip_tags($description));
-        $released    = htmlspecialchars(strip_tags($released));
         $active      = htmlspecialchars(strip_tags($active));
         $createdBy   = htmlspecialchars(strip_tags($createdBy));
+
+        $now = date('Y-m-d H:i:s');
 
         $query = "INSERT INTO $this->table
             SET 
                 name        = '$name',
                 description = '$description',
-                released    = '$released',
+                released    = '$now',
                 active      = $active,
                 created_by  = $createdBy";
 
@@ -71,17 +71,15 @@ class publicationsModel extends connectionClass {
      *
      * @param [string] $name
      * @param [string] $description
-     * @param [string] $released
      * @param [int] $active
      * @param [int] $updatedBy
      * @param [int] $publicationId
      * @return void
      */
-    public function update($name, $description, $released, $active, $updatedBy, $publicationId)
+    public function update($name, $description, $active, $updatedBy, $publicationId)
     {
         $name        = htmlspecialchars(strip_tags($name));
         $description = htmlspecialchars(strip_tags($description));
-        $released    = htmlspecialchars(strip_tags($released));
         $active      = htmlspecialchars(strip_tags($active));
         $updatedBy   = htmlspecialchars(strip_tags($updatedBy));
 
@@ -89,7 +87,6 @@ class publicationsModel extends connectionClass {
             SET 
                 name        = '$name',
                 description = '$description',
-                released    = '$released',
                 active      = $active,
                 updated_by  = $updatedBy
             WHERE publication_id = $publicationId";
