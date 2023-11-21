@@ -1,5 +1,5 @@
 # PHP y MySQL REST API
-Esta es una API REST escrita en PHP con autenticación y generacion de JWT, que conecta a una DB de MySQL/MariaDB
+Esta es una API REST escrita en PHP nativo, cuenta con autenticación y generacion de JWT, además conecta a una DB de MySQL/MariaDB
 
 ## Configuración
 - El primer paso es crear la DB y ejecutar el script de SQL.
